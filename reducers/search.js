@@ -5,8 +5,10 @@ const initialState={
 export default (state = initialState, action) =>{
     const newState={...state};
 
-    if(action.type === 'SEARCH_SUCCESS'){
-      newState.results = action.results;
+    switch(action.type){
+      case 'SEARCH_SUCCESS':
+            newState.results = action.results;
+            break;
     }
     return newState;
 }
