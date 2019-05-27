@@ -1,3 +1,4 @@
+import 'babel-regenerator-runtime';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -7,10 +8,16 @@ import App from './components/app';
 import {searchSuccess} from './actions/search';
 import reducer from './reducers';
 import { createLogger } from 'redux-logger';
+import searchSaga from './sagas/search';
+import createSagaMiddleware from 'redux-saga';
+
+const sagas = createSagaMiddleware();
 
 const store = createStore(
-    reducer, applyMiddleware(createLogger())
+    reducer, applyMiddleware(createLogger(), sagas)
     );
+
+sagas.run(searchSaga)
 
 const results=[
     {
