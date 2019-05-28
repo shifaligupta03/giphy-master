@@ -3,10 +3,11 @@ const initialState={
 };
 
 function searchResultTransformer(rawResult){
-    const { images } = rawResult;
+    const { images, id } = rawResult;
     return {
         thumbnail:images.fixed_height_small_still.url,
-        full: images.original.url
+        full: images.original.url,
+        id
     }
 }
 

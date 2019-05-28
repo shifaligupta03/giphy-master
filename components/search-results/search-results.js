@@ -17,14 +17,6 @@ class SearchResults extends React.Component{
     }
 }
 
-// const SearchResults = ({results}) => {
-//     return ( 
-//         <div>
-//             {results.map((result)=> <SearchResult key={result.id} result={result} />)}
-//         </div>
-//      );
-// }
- 
 export default SearchResults;
 
 SearchResults.proptypes={
