@@ -4,7 +4,9 @@ import {push} from 'react-router-redux';
 import Navigation from './navigation';
 
 const pages=[
-    {path:'/', title:'search'}
+    {path:'/', title:'search'},
+    {path:'/trending', title:'Trending'},
+    {path:'/random', title:'Random'}
 ];
 
 function mapStateToProps(){

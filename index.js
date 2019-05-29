@@ -13,9 +13,10 @@ import createSagaMiddleware from 'redux-saga';
 
 import { Router, Route } from 'react-router';
 import {ConnectedRouter, routerMiddleware } from 'connected-react-router'
-// import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
-// import { createBrowserHistory } from 'history';
 import createBrowserHistory from 'history/createBrowserHistory';
+import SearchPage from './components/pages/search/search';
+import TrendingPage from './components/pages/trending/trending';
+import RandomPage from './components/pages/random/random';
 
 const history = createBrowserHistory();
 const sagas = createSagaMiddleware();
@@ -35,6 +36,9 @@ ReactDOM.render(
     <Provider store={store}>
     <ConnectedRouter history={history}>
     <App>
+        <Route exact path="/" component={SearchPage} />
+        <Route exact path="/trending" component={TrendingPage} />
+        <Route exact path="/random" component={RandomPage} />
     </App>
     </ConnectedRouter>
     </Provider>,
