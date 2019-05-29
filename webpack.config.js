@@ -4,6 +4,9 @@ module.exports={
         path:__dirname,
         filename:'bundle.js'
     },
+    devServer:{
+        historyApiFallback: true
+    },
     devtool:'eval-source-map',
     module:{
         loaders:[

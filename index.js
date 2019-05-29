@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import App from './components/app';
+import App from './components/app/app.container';
 
 import {searchSuccess} from './actions/search';
 import reducer from './reducers';
@@ -11,31 +11,27 @@ import { createLogger } from 'redux-logger';
 import searchSaga from './sagas/search';
 import createSagaMiddleware from 'redux-saga';
 
+import { Router, Route } from 'react-router';
+import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
+import { createBrowserHistory } from 'history';
+
+const history = createBrowserHistory();
 const sagas = createSagaMiddleware();
 
 const store = createStore(
-    reducer, applyMiddleware(createLogger(), sagas)
+    routerMiddleware(history),
+    reducer,
+     applyMiddleware(createLogger(), sagas)
     );
 
 sagas.run(searchSaga)
 
-// const results=[
-//     {
-//         full:'https:\/\/media3.giphy.com\/media\/dzaUX7CAG0Ihi\/giphy_s.gif',
-//         thumbnail:'https://media3.giphy.com/media/dzaUX7CAG0Ihi/100_s.gif',
-//         id: "dzaUX7CAG0Ihi",
-//     },
-//     {
-//         full:'https:\/\/media0.giphy.com\/media\/xT9IgG50Fb7Mi0prBC\/giphy_s.gif',
-//         thumbnail:'https:\/\/media0.giphy.com\/media\/xT9IgG50Fb7Mi0prBC\/100_s.gif',
-//         id: "xT9IgG50Fb7Mi0prBC",
-//     }
-// ];
-// setTimeout(()=>{
-//     store.dispatch(searchSuccess(results));
-// },2000);
-
 ReactDOM.render(
-    <Provider store={store}><App /></Provider>,
+    <Provider store={store}>
+    <ConnectedRouter history={history}>
+    <App>
+    </App>
+    </ConnectedRouter>
+    </Provider>,
     document.getElementById('app')
 )
