@@ -18,6 +18,10 @@ module.exports={
                     presets:['es2015','react'],
                     plugins:['transform-object-rest-spread']
                 }
+            },
+            {
+                test: /\.css$/,
+                loader:'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]_[local]__[hash:base64:5]',
             }
         ]
     }
