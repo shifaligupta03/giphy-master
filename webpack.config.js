@@ -21,7 +21,15 @@ module.exports={
             },
             {
                 test: /\.css$/,
-                loader:'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]_[local]__[hash:base64:5]',
+                use: [
+                    {loader: "style-loader"},
+                    {loader: "css-loader"}
+                ],
+                options:{
+                    modules:true,
+                    importLoaders:true,
+                    localIdentName:'[path][name]_[local]__[hash:base64:5]',
+                },
             }
         ]
     }
