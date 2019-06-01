@@ -1,10 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './navigation-item.module.css';
+import classNames from 'classnames';
 
-export default function NavigationItem({path, onClick, children }){
+export default function NavigationItem({path, onClick, children, isCurrent }){
+    const containerClassNames = classNames(
+        styles.container,
+        {[styles.selected]: isCurrent}
+    );
+    console.log(containerClassNames, isCurrent);
     return ( 
-        <div>
+        <div className={containerClassNames}>
             <a 
+                className={styles.link}
                 href={path} 
                 onClick={(e)=>{ 
                 e.preventDefault();
@@ -20,4 +28,5 @@ export default function NavigationItem({path, onClick, children }){
 NavigationItem.propTypes ={
     path: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
+    isCurrent: PropTypes.bool.isRequired
 }

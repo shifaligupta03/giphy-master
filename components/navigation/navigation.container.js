@@ -9,8 +9,12 @@ const pages=[
     {path:'/random', title:'Random'}
 ];
 
-function mapStateToProps(){
-    return {pages};
+function mapStateToProps(state){
+    console.log(state.router.location.pathname);
+    return {
+        pages,
+        currentPath: state.router.location.pathname
+    };
 }
 
 function mapDispatchToProps(dispatch){
