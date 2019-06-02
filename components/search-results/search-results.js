@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as customTypes from '../../lib/custom-types';
 import SearchResult from '../search-result/search-result';
+import styles from './search-results.css';
 
 class SearchResults extends React.Component{
     constructor(props){
@@ -10,7 +11,7 @@ class SearchResults extends React.Component{
     render(){
         const {results} = this.props;
         return ( 
-            <div>
+            <div className={styles.container}>
                 {results.map((result)=> <SearchResult key={result.id} result={result} />)}
             </div>
          );
