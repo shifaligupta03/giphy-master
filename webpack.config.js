@@ -9,7 +9,7 @@ module.exports={
     },
     devtool:'eval-source-map',
     module:{
-        loaders:[
+        rules:[
             {
                 test: /.js?$/,
                 loader:'babel-loader',
@@ -20,18 +20,16 @@ module.exports={
                 }
             },
             {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            importLoaders: 1,
-                            modules: true,
-                            localIdentName: '[path][name]__[local]_[hash:base64:5]',
-                            },
-                    }
-                ]
+                test: /.css$/,
+                 loader: 'style-loader' 
+            },
+            {
+                test: /.css$/,
+                loader: 'css-loader',
+                options: {
+                    modules: true,
+                    localIdentName: '[name][local]_[hash:base64:5]'
+                }
             }
         ]
     }

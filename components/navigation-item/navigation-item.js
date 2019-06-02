@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './navigation-item.module.css';
+import styles from './navigation-item.css';
 import classNames from 'classnames';
 
 export default function NavigationItem({path, onClick, children, isCurrent }){

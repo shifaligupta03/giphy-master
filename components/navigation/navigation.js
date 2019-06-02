@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import NavigationItem from '../navigation-item/navigation-item';
-import styles from './navigation.module.css';
+import styles from './navigation.css';
 
 
 export default function Navigation({pages, navigate, currentPath}){
