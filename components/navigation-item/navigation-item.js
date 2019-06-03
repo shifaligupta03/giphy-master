@@ -8,7 +8,6 @@ export default function NavigationItem({path, onClick, children, isCurrent }){
         styles.container,
         {[styles.selected]: isCurrent}
     );
-    console.log(containerClassNames, isCurrent);
     return ( 
         <div className={containerClassNames}>
             <a 

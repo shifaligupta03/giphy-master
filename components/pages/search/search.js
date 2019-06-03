@@ -8,7 +8,7 @@ export default ()=>{
     return(
         <div>
             <SearchForm />
-            <InfiniteScroll isLoading={false}>
+            <InfiniteScroll isLoading={false} onTrigger={(e)=>console.log('Infinite scroll trigger')}>
                 <SearchResults />
             </InfiniteScroll>
         </div>

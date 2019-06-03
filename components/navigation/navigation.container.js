@@ -10,7 +10,6 @@ const pages=[
 ];
 
 function mapStateToProps(state){
-    console.log(state.router.location.pathname);
     return {
         pages,
         currentPath: state.router.location.pathname

@@ -5,7 +5,6 @@ import styles from './navigation.css';
 
 
 export default function Navigation({pages, navigate, currentPath}){
-    console.log(styles);
     const items= pages.map(
         ({ path, title }) => <NavigationItem
                             key={path} 
