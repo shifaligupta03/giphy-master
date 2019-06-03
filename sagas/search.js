@@ -13,7 +13,7 @@ export function* doSearch({ searchTerm }) {
             params: {
               apiKey,
               q: searchTerm,
-              limit: 25
+              limit: 50
             }
           });
           yield put(searchSuccess(searchResults.data.data));
