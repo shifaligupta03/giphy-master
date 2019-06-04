@@ -1,5 +1,6 @@
 const initialState={
-    results:[]
+    results:[],
+    currentOffset:0
 };
 
 function searchResultTransformer(rawResult){
