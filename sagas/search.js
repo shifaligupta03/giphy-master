@@ -1,7 +1,6 @@
 import axios from "axios";
 import { put, call, takeLatest, select } from "redux-saga/effects";
 import { SEARCH_PERFORMED, searchSuccess, searchError } from "../actions/search";
-// import { takeLatest } from 'redux-saga';
 
 const apiKey = "je68JGJlKCNVThoUoI6J6E7f6HJAai2s";
 
