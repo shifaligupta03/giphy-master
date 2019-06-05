@@ -1,6 +1,7 @@
 const initialState={
     results:[],
-    currentOffset:0
+    currentOffset:0,
+    searchTerm:null
 };
 
 function searchResultTransformer(rawResult){
@@ -17,9 +18,17 @@ export default (state = initialState, action) =>{
     const newState={...state};
 
     switch(action.type){
-      case 'SEARCH_SUCCESS':
-            newState.results = action.results.map(searchResultTransformer);
+        case 'SEARCH_SUCCESS':
+            newState.results = [...state.results,...action.results.map(searchResultTransformer)];
+            // newState.results = action.results.map(searchResultTransformer);
+            newState.currentOffset= state.currentOffset+50;
             break;
+        case 'NEW_SEARCH':
+            newState.results = [];
+            newState.currentOffset= 0;
+            newState.searchTerm= action.searchTerm;
+            break;
+        
     }
     return newState;
 }

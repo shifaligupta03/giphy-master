@@ -1,13 +1,13 @@
 import axios from "axios";
 import { put, call, takeLatest, select } from "redux-saga/effects";
-import { SEARCH_PERFORMED, searchSuccess, searchError } from "../actions/search";
+import { PERFORM_SEARCH, searchSuccess, searchError } from "../actions/search";
 
 const apiKey = "je68JGJlKCNVThoUoI6J6E7f6HJAai2s";
 
 const selectSearchState= (state)=>state.search;
 
-export function* doSearch({ searchTerm }) {
-    const {currentOffset} = yield select(selectSearchState);
+export function* doSearch() {
+    const {currentOffset, searchTerm} = yield select(selectSearchState);
     try{
         const searchResults = yield call(axios.get,
              "https://api.giphy.com/v1/gifs/search",
@@ -27,6 +27,6 @@ export function* doSearch({ searchTerm }) {
 }
 
 export default function*(){
-    yield takeLatest(SEARCH_PERFORMED, doSearch);
+    yield takeLatest(PERFORM_SEARCH, doSearch);
 }
 
