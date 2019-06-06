@@ -1,16 +1,22 @@
 import React from 'react';
-import SearchForm from '../../search-form/search-form.container';
+import SearchForm from '../../search-form/search-form';
 import SearchResults from '../../search-results/search-results.container';
 import InfiniteScroll from '../../infinite-scroll/infinite-scroll';
+import PropTypes from 'prop-types';
 
-export default ()=>{
+export default function search({onSearchSubmitted, onInfiniteTrigger}){
 
     return(
         <div>
-            <SearchForm />
-            <InfiniteScroll isLoading={false} onTrigger={(e)=>console.log('Infinite scroll trigger')}>
+            <SearchForm onSearchSubmitted={onSearchSubmitted} />
+            <InfiniteScroll isLoading={false} onTrigger={()=>{onInfiniteTrigger}}>
                 <SearchResults />
             </InfiniteScroll>
         </div>
     )
+}
+
+search.propTypes ={
+    onSearchSubmitted: PropTypes.func.isRequired,
+    onInfiniteTrigger: PropTypes.func.isRequired
 }
