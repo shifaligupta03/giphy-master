@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import {newSearch, performSearch} from '../../../actions/search';
 
 function mapStateToProps(state){
-    return{};
+    return{
+        isLoading: state.search.isSearchLoading,
+        isActive: state.search.isSearchActive
+    };
 }
 function mapDispatchToProps(dispatch){
     return{
@@ -11,7 +14,7 @@ function mapDispatchToProps(dispatch){
             dispatch(newSearch(searchTerm));
             dispatch(performSearch());
         },
-        onInfiniteTrigger:()=>{
+        onInfiniteTrigger: ()=>{
             dispatch(performSearch());
         }
     }

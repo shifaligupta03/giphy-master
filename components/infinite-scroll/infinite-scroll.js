@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Spinner from '../spinner/spinner';
 
 class InfiniteScroll  extends React.Component{
-    constructor(props){
-        super(props);
+    constructor(...args){
+        super(...args);
         this.container = null;
         this.scrollListener = this.scrollListener.bind(this);
     }
@@ -16,10 +17,10 @@ class InfiniteScroll  extends React.Component{
     }
 
     scrollListener(){
-        const {isLoading, onTrigger} = this.props;
+        const {isLoading, onTrigger, isActive} = this.props;
         const viewPortHeight = document.documentElement.clientHeight;
         const {bottom} = this.container.getBoundingClientRect();
-        if(!isLoading && bottom<= viewPortHeight){
+        if(isActive && !isLoading && (bottom <= viewPortHeight)){
             //trigger infinite scroll
             onTrigger();
         }
@@ -29,7 +30,7 @@ class InfiniteScroll  extends React.Component{
         return ( 
             <div ref={(e)=> this.container=e}>
                 {children}
-                {isLoading && <div>Loading ....</div>}
+                {isLoading && <Spinner />}
             </div>          
         );
     }
