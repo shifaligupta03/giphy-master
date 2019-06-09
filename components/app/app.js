@@ -9,7 +9,7 @@ const App = ({children, giphyDisplayIsShown, giphyDisplayed, onHideGiphyDisplaye
       <h1 className={styles.header}>Giphy Master</h1>
       <Navigation />
       {children}
-      {giphyDisplayIsShown && <GiphyDisplay isShown={giphyDisplayIsShown} onClick={onHideGiphyDisplayed} giphy={giphyDisplayed} />}
+      <GiphyDisplay isShown={giphyDisplayIsShown} onClick={onHideGiphyDisplayed} giphy={giphyDisplayed} />
     </div>
 );
 

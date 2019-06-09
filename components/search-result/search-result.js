@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as customTypes from '../../lib/custom-types';
+import styles from './search-result.css';
 
 const SearchResult = ({result, onClick}) => {
     const {thumbnail} = result;
@@ -9,7 +10,7 @@ const SearchResult = ({result, onClick}) => {
         onClick();
     }
     return (
-        <img src={thumbnail} onClick={clicked} />
+        <img className={styles.imageCursor} src={thumbnail} onClick={clicked} />
      );
 }
  
