@@ -9,10 +9,10 @@ class SearchResults extends React.Component{
         super(props);
     }
     render(){
-        const {results} = this.props;
+        const {results, searchResultClicked} = this.props;
         return ( 
             <div className={styles.container}>
-                {results.map((result)=> <SearchResult key={result.id} result={result} />)}
+                {results.map((result)=> <SearchResult key={result.id} result={result} onClick={()=>searchResultClicked(result)} />)}
             </div>
          );
     }
@@ -21,5 +21,6 @@ class SearchResults extends React.Component{
 export default SearchResults;
 
 SearchResults.proptypes={
-    results: PropTypes.arrayOf(customTypes.searchResult)
+    results: PropTypes.arrayOf(customTypes.searchResult),
+    searchResultClicked: PropTypes.func.isRequired
 }
