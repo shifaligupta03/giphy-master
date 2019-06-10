@@ -1,4 +1,4 @@
-import Search from './search';
+import Trending from './trending';
 import infiniteSearchContainer from '../infinite-search/infinite-search.container';
 
-export default infiniteSearchContainer(Search);
+export default infiniteSearchContainer(Trending);

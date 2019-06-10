@@ -9,15 +9,20 @@ const selectSearchState= (state)=>state.search;
 export function* doSearch() {
     const {currentOffset, searchTerm} = yield select(selectSearchState);
     try{
-        const searchResults = yield call(axios.get,
-             "https://api.giphy.com/v1/gifs/search",
+      let endpoint =  "trending";
+      const parameters = {
+        apiKey,
+        limit: 50,
+        offset: currentOffset
+      }
+      if(typeof(searchTerm) !== 'undefined'){
+        endpoint =  "search";
+        parameters.q= searchTerm;
+      }
+      const searchResults = yield call(axios.get,
+        `https://api.giphy.com/v1/gifs/${endpoint}`,
               {
-            params: {
-              apiKey,
-              q: searchTerm,
-              limit: 50,
-              offset: currentOffset
-            }
+            params: parameters
           });
           yield put(searchSuccess(searchResults.data.data));
     } catch(e){

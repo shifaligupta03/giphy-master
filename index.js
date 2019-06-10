@@ -15,7 +15,7 @@ import { Router, Route } from 'react-router';
 import {ConnectedRouter, routerMiddleware } from 'connected-react-router'
 import createBrowserHistory from 'history/createBrowserHistory';
 import SearchPage from './components/pages/search/search.container';
-import TrendingPage from './components/pages/trending/trending';
+import TrendingPage from './components/pages/trending/trending.container';
 import RandomPage from './components/pages/random/random';
 
 const history = createBrowserHistory();
