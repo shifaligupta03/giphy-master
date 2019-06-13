@@ -11,7 +11,7 @@ const initialState={
 function searchResultTransformer(rawResult){
     const { images, id } = rawResult;
     return {
-        thumbnail:images.fixed_height_small_still.url,
+        thumbnail:images.fixed_height_small_still.url, //fixed_width_downsampled
         full: images.original.url,
         id
     }
@@ -44,8 +44,7 @@ export default (state = initialState, action) =>{
             newState.isSearchActive = false;
             break;
         case LOCATION_CHANGE:
-            return initialState;
-        
+            return initialState;       
     }
     return newState;
 }

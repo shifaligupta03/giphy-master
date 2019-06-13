@@ -16,7 +16,8 @@ import {ConnectedRouter, routerMiddleware } from 'connected-react-router'
 import createBrowserHistory from 'history/createBrowserHistory';
 import SearchPage from './components/pages/search/search.container';
 import TrendingPage from './components/pages/trending/trending.container';
-import RandomPage from './components/pages/random/random';
+import RandomPage from './components/pages/random/random.container';
+import rootSaga from './sagas/rootSaga';
 
 const history = createBrowserHistory();
 const sagas = createSagaMiddleware();
@@ -30,7 +31,7 @@ const store = createStore(
     )
 );
 
-sagas.run(searchSaga)
+sagas.run(rootSaga)
 
 ReactDOM.render(
     <Provider store={store}>
