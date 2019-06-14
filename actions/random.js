@@ -4,9 +4,9 @@ export const RANDOM_SEARCH_ERROR = 'RANDOM_SEARCH_ERROR';
 
 export const randomSearchError =()=>({type: RANDOM_SEARCH_ERROR})
 
-export const randomSearchSuccess =(results)=>({
+export const randomSearchSuccess =(result)=>({
     type: RANDOM_SEARCH_SUCCESS, 
-    results
+    result
 });
 export const performRandomSearch =()=>({
     type: PERFORM_RANDOM_SEARCH

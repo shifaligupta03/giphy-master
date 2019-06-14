@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import { performRandomSearch, randomSearchSuccess } from '../../../actions/random';
 import Random  from './random';
+import {showGiphy} from '../../../actions/giphy-display';
 
 function mapStateToProps(state){
     return {
-        results: state.random.results
+        result: state.random.result
     };
 }
 
@@ -12,7 +13,9 @@ function mapDispatchToProps(dispatch){
     return{
         doRandomSearch: ()=>{
             dispatch(performRandomSearch());
-            // dispatch(randomSearchSuccess());
+        },
+        randomResultClicked: (giphy)=>{
+            dispatch(showGiphy(giphy));
         }
     }
 }

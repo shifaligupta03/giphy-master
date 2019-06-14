@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import SearchResults from './search-results';
-import {showGiphy} from '../../actions/giphy-display'
+import {showGiphy} from '../../actions/giphy-display';
 function mapStateToProps(state){
     return {
         results: state.search.results
