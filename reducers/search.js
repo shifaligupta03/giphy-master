@@ -17,7 +17,6 @@ function searchResultTransformer(rawResult){
     }
 }
 
-
 export default (state = initialState, action) =>{
     const newState={...state};
 

@@ -5,7 +5,8 @@ import {showGiphy} from '../../../actions/giphy-display';
 
 function mapStateToProps(state){
     return {
-        result: state.random.result
+        result: state.random.result,
+        isLoading: state.random.isLoading
     };
 }
 
