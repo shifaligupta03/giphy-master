@@ -3,18 +3,13 @@ const initialState={
     giphyDisplayed: null,
     giphyDisplayIsShown: false
 };
-export default (state = initialState, action) =>{
-    const newState={...state};
-
+export default (state = initialState, action ) =>{
     switch(action.type){
         case SHOW_GIPHY:
-            newState.giphyDisplayed = action.giphyDisplayed;
-            newState.giphyDisplayIsShown = true;
-            break;
+            return { ...state, giphygiphyDisplayed: action.giphyDisplayed, giphyDisplayIsShown: true };
         case HIDE_GIPHY:
-            newState.giphyDisplayIsShown = false;
-            newState.giphyDisplayed = initialState.giphyDisplayed;
-            break;        
+            return { ...state, giphyDisplayed: initialState.giphyDisplayed, giphyDisplayIsShown: false };
+        default: 
+            return initialState;    
     }
-    return newState;
 }
