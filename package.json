@@ -22,7 +22,7 @@
     "webpack-dev-server": "^2.11.5"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "babel-regenerator-runtime": "^6.5.0",
     "classnames": "^2.2.6",
     "connected-react-router": "^6.4.0",
